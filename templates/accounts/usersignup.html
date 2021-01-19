@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/87f8f9bf1f.js"></script>
+</head>
+<body style="background-color:#e1f5f4;">
+<div class="container">
+<hr>
+<div class="card mx-auto" style="max-width: 300px;">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	{% if message %}
+	<h6 style="color:red;text-align:center"> {{message}}</h6>
+	{% endif %}
+	<form action="{% url 'signup' %}" method="POST">
+		{% csrf_token %}
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="username" class="form-control" placeholder="Your Name" type="text" required>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="email" class="form-control" placeholder="Email address" type="email" required>
+    </div> <!-- form-group// -->
+      <div class="form-group input-group">
+    	 <div class="input-group-prepend">
+		    <!-- <span class="input-group-text"> <i class="fa fa-building"></i> </span> -->
+		</div>
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Create password" type="password" name="password" required>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Repeat password" type="password" name="repeatpassword" required>
+    </div> <!-- form-group// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div> <!-- form-group// -->
+    <p class="text-center">Have an account?  <a href="{% url 'login' %}">Log In</a>   OR    <a href="{% url 'home' %}">Back</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div>
+
+
+</body>
+</html>

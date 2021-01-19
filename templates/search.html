@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:#e1f5f4;">
+
+{% if change %}
+{% include 'navbar2.html' %}
+{% else %}
+{% include 'navbar1.html' %}
+{% endif %}
+
+<br><h1 style="text-align:center; color:green;"><u>Welcome To The Music World</u></h1><br>
+
+{% if message %}
+
+<h3 style="text-align:center;color:red">{{message}}</h3>
+
+{% endif %}
+
+
+<div class="container-fluide">
+    <div class="col-md-12 pt-2">
+
+      <!--images-->
+      <div class="row">
+
+
+        <div class="col-md-12">
+
+          <div class="card-columns">
+ {% for i in song %}
+            <div class="card">
+    <img class="card-img-top" src="/media/{{i.image}}" alt="Card image cap"></a>
+  <div class="card-body">
+    <h5 class="card-title">{{i.song_name}}</h5>
+    <p class="card-text">{{i.tag}}</p>
+      Singer : {{i.singer_name}}
+      <a href="/playsong/{{i.song_id}}" class="btn btn-success">Play</a>
+  </div></div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
